@@ -16,3 +16,6 @@ const bidder1Btn = document.getElementById('bidder1-btn');
 const bidder2Btn = document.getElementById('bidder2-btn');
 const clearBtn = document.getElementById('clear-bids-btn');
 
+function placeBidder1 () {
+    const bidAmount = parseInt(bidder1Input.value);
+}
