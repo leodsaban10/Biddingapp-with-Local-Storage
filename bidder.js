@@ -18,4 +18,12 @@ const clearBtn = document.getElementById('clear-bids-btn');
 
 function placeBidder1 () {
     const bidAmount = parseInt(bidder1Input.value);
+    if (!isNaN(bidAmount) && bidAmount > 0) {
+        bidder1Total = bidAmount;
+        bidder1TotalDisplay.textContent = `Bidder1 Total: $${bidder1Total}`;
+        bidder1Input.value = '';
+    } else {
+        alert('Please enter a valid number for Bidder 1');
+    }
 }
+bidder1Btn.addEventListener('click', placeBidder1);
