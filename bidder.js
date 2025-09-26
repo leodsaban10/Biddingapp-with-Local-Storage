@@ -27,3 +27,15 @@ function placeBidder1 () {
     }
 }
 bidder1Btn.addEventListener('click', placeBidder1);
+
+function placeBidder2 () {
+    const bidAmount = parseInt(bidder2Input.value);
+    if (!isNaN(bidAmount) && bidAmount > 0) {
+        bidder2Total = bidAmount;
+        bidder2TotalDisplay.textContent = `Bidder2 Total: $${bidder2Total}`;
+        bidder2Input.value = '';
+    } else {
+        alert('Please enter a valid number for Bidder 2');
+    }
+}
+bidder2Btn.addEventListener('click', placeBidder2);
