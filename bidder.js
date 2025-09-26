@@ -21,6 +21,7 @@ function placeBidder1 () {
     if (!isNaN(bidAmount) && bidAmount > 0) {
         bidder1Total = bidAmount;
         bidder1TotalDisplay.textContent = `Bidder1 Total: $${bidder1Total}`;
+        calculateHighestBidder();
         bidder1Input.value = '';
     } else {
         alert('Please enter a valid number for Bidder 1');
@@ -33,9 +34,34 @@ function placeBidder2 () {
     if (!isNaN(bidAmount) && bidAmount > 0) {
         bidder2Total = bidAmount;
         bidder2TotalDisplay.textContent = `Bidder2 Total: $${bidder2Total}`;
+        calculateHighestBidder();
         bidder2Input.value = '';
     } else {
         alert('Please enter a valid number for Bidder 2');
     }
 }
 bidder2Btn.addEventListener('click', placeBidder2);
+
+clearBtn.addEventListener('click', function() {
+    bidder1Total = 0;
+    bidder2Total = 0;
+    bidder1TotalDisplay.textContent = '$0';
+    bidder2TotalDisplay.textContent = '$0';
+    highestBidderDisplay.textContent = 'N/A';
+    highestBidDisplay.textContent = '$0';
+    bidder1Input.value = '';
+    bidder2Input.value = '';
+});
+
+function calculateHighestBidder () {
+    if (bidder1Total > bidder2Total){
+        highestBidderDisplay.textContent = 'Bidder 1';
+        highestBidDisplay.textContent = `$${bidder1Total}`;
+    } else if (bidder2Total > bidder1Total) {
+        highestBidderDisplay.textContent = 'Bidder 2';
+        highestBidDisplay.textContent = `$${bidder2Total}`;
+    } else {
+        highestBidderDisplay.textContent = 'Tie';
+        highestBidDisplay.textContent = `$${bidder1Total}`;
+    }
+}
